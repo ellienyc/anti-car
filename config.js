@@ -17,6 +17,8 @@ var config = {
             title: 'intro', //chapter one
             // image: './assets/san-fran.jpeg',
             description: 'NYC/Manhattan streets',
+            style: 'mapbox://styles/mapbox/satellite-streets-v12', // different basemap here
+
             location: {
                 center: [-73.98732, 40.73],
                 zoom: 11.75,
