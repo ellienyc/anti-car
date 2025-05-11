@@ -225,13 +225,12 @@ map.on("load", function () {
     }
 
     // adding my own layers and sources
-    map.addSource('openStreets', {
+    map.addSource('openStreets', { //NYC Open Streets
         type: 'geojson',
         data: 'https://data.cityofnewyork.us/resource/uiay-nctu.geojson' //from NYC Open Data
     });
     map.addLayer({
-        'id': 'openStreets-fill',
-        'type': 'fill',
+        'id': 'openStreets-fill', //open streets as fill
         'source': 'openStreets',
         'layout': {},
         'paint': {
@@ -241,8 +240,7 @@ map.on("load", function () {
         }
     });
     map.addLayer({
-        'id': 'openStreets-line',
-        'type': 'line',
+        'id': 'openStreets-line', //open streets as line for better visibility
         'source': 'openStreets',
         'paint': {
             'line-color': 'steel blue',
@@ -251,12 +249,12 @@ map.on("load", function () {
         }
     });
 
-    map.addSource('pedPlazas', {
+    map.addSource('pedPlazas', { //pedestrian plazas, a.k.a. space taken back from cars
         type: 'geojson',
         data: 'https://data.cityofnewyork.us/resource/k5k6-6jex.geojson' // from https://data.cityofnewyork.us/Transportation/NYC-DOT-Pedestrian-Plazas/k5k6-6jex/about_data
     });
     map.addLayer({
-        'id': 'pedPlazas-fill',
+        'id': 'pedPlazas-fill', //pedestrian plazas as fill
         'type': 'fill',
         'source': 'pedPlazas',
         'layout': {},
@@ -266,7 +264,7 @@ map.on("load", function () {
         }
     });
     map.addLayer({
-        'id': 'pedPlazas-line',
+        'id': 'pedPlazas-line', //and pedestrian plazas as line for better visibility
         'type': 'line',
         'source': 'pedPlazas',
         'paint': {
@@ -275,7 +273,7 @@ map.on("load", function () {
             'line-opacity': 0
         }
     });
-    map.addSource('bikeParkingS', {
+    map.addSource('bikeParkingS', { //bike parking stations/shelters
         type: 'geojson',
         data: 'https://data.cityofnewyork.us/resource/dimy-qyej.geojson' // from NYC Open Data
     });
@@ -290,24 +288,24 @@ map.on("load", function () {
             'circle-opacity': 0
         }
     });
-    map.addSource('bikeParking', {
+    map.addSource('citiBike', { //citiBike stations
         type: 'geojson',
-        data: '/data/bikeparking.geojson' // from NYC Open Data https://data.cityofnewyork.us/Transportation/Bicycle-Parking/592z-n7dk/data_preview
+        data: 'data/citibike-stations.geojson' // from https://github.com/toddwschneider/nyc-citibike-data/blob/master/data/citibike_stations_data.csv then converted using https://www.convertcsv.com/csv-to-geojson.htm
     });
-    map.addLayer({
-        'id': 'bikeParking-point',
+        map.addLayer({
+        'id': 'citiBike-point',
         'type': 'circle',
-        'source': 'bikeParking',
+        'source': 'citiBike',
         'layout': {},
         'paint': {
-            'circle-color': 'orange',
-            'circle-radius': 1,
+            'circle-color': 'red',
+            'circle-radius': 2,
             'circle-opacity': 0
         }
     });
-    map.addSource('bikeLanes', {
+    map.addSource('bikeLanes', { //bike lanes
         type: 'geojson',
-        data: '/data/bikeroutes.geojson' // from NYC Open Data
+        data: '/data/bikeroutes.geojson' // from NYC Open Data 
     });
     map.addLayer({
         'id': 'bikeLanes-line',
@@ -320,7 +318,7 @@ map.on("load", function () {
             'line-opacity': 0
         }
     });
-    map.addSource('busLanes', {
+    map.addSource('busLanes', { //bus lanes
         type: 'geojson',
         data: 'https://data.cityofnewyork.us/resource/ycrg-ses3.geojson?$limit=2000&$offset=500' // from NYC Open Data
     });
@@ -333,6 +331,63 @@ map.on("load", function () {
             'line-color': 'darkred',
             'line-width': 2,
             'line-opacity': 0
+        }
+    });
+    map.addSource('city', { // NYC city boundaries, to gray out NJ
+        type: 'geojson',
+        data: '/data/city-inverted.geojson' // inverse of NYC, from borough boundaries
+    });
+    map.addLayer({
+        'id': 'city-only-fill',
+        'type': 'fill',
+        'source': 'city',
+        'layout': {},
+        'paint': {
+            'fill-color': 'gray',
+            'fill-opacity': 0.5
+        }
+    });
+    map.addSource('streets', { // NYC street center lines
+        type: 'geojson',
+        data: '/data/DCM_StreetCenterLine.geojson' // from NYC Planning data
+    });
+    map.addLayer({
+        'id': 'streets-line',
+        'type': 'line',
+        'source': 'streets',
+        'layout': {},
+        'paint': {
+            'line-color': 'red',
+            'line-width': 1,
+            'line-opacity': 0
+        }
+    });
+    map.addSource('CBD', { // Central Business district/congestion pricing zone
+        type: 'geojson',
+        data: 'https://data.ny.gov/resource/srxy-5nxn.geojson' // from MTA CBD geofence https://data.ny.gov/Transportation/MTA-Central-Business-District-Geofence-Beginning-J/srxy-5nxn/about_data
+    });
+    map.addLayer({
+        'id': 'CBD-fill',
+        'type': 'fill',
+        'source': 'CBD',
+        'layout': {},
+        'paint': {
+            'fill-color': 'lightpink',
+            'fill-opacity': 0
+        }
+    });
+    map.addSource('CBD-only', { //inverse of CBD to keep as visual reference for the rest of the chapters
+        type: 'geojson',
+        data: 'data/CBD-inverted.geojson' // inverse of CBD using tristan.ca/inverted-polygons of above
+    });
+    map.addLayer({
+        'id': 'CBD-only-fill',
+        'type': 'fill',
+        'source': 'CBD-only',
+        'layout': {},
+        'paint': {
+            'fill-color': 'lightgray',
+            'fill-opacity': 0
         }
     });
 });

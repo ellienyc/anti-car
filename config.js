@@ -54,9 +54,23 @@ var config = {
             // mapAnimation: 'flyTo',
             rotateAnimation: false,
             callback: '',
-            onChapterEnter: [
+            onChapterEnter: [ {
+                layer: 'CBD-fill',
+                opacity: 1,
+                duration: 100
+            }
             ],
-            onChapterExit: [
+            onChapterExit: [ 
+                {
+                layer: 'CBD-fill',
+                opacity: 0,
+                duration: 100
+            },
+            {
+                layer: 'CBD-only-fill',
+                opacity: 0.5,
+                duration: 110
+            }
             ]
         },
         {
@@ -74,8 +88,20 @@ var config = {
             // mapAnimation: 'flyTo',
             rotateAnimation: false,
             callback: '',
-            onChapterEnter: [],
-            onChapterExit: []
+            onChapterEnter: [
+                {
+                layer: 'streets-line',
+                opacity: 1,
+                duration: 100
+            }
+        ],
+            onChapterExit: [
+                {
+                layer: 'streets-line',
+                opacity: 0,
+                duration: 100
+            },
+            ]
         },
         {
             id: 'fourth-chapter',
@@ -158,7 +184,7 @@ var config = {
                 duration: 100,
             },
             {
-                layer: 'bikeParking-point',
+                layer: 'citiBike-point',
                 opacity: 1,
                 duration: 100,
             },
@@ -174,7 +200,7 @@ var config = {
                 duration: 100,
             },
             {
-                layer: 'bikeParking-point',
+                layer: 'citiBike-point',
                 opacity: 0,
                 duration: 100,
             },
