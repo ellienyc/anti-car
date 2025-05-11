@@ -1,3 +1,4 @@
+//layout from Mapbox Storytelling template
 
 var config = {
     style: 'mapbox://styles/ekarpe/cmafq4uwa006t01s13ff011zh', // style URL
@@ -13,7 +14,7 @@ var config = {
             id: 'slug-style-id',
             alignment: 'fully',
             hidden: false,
-            title: 'intro',
+            title: 'intro', //chapter one
             // image: './assets/san-fran.jpeg',
             description: 'NYC/Manhattan streets',
             location: {
@@ -40,13 +41,13 @@ var config = {
             ]
         },
         {
-            id: 'second-identifier',
+            id: 'second-identifier', //chapter two
             alignment: 'left',
             hidden: false,
             title: 'CBD',
             description: 'congestion pricing zone',
             location: {
-                center: [-73.98732, 40.73],
+                center: [-73.98732, 40.73], //same map parameters for all chapters
                 zoom: 11.75,
                 pitch: 0,
                 bearing: 28.9,
@@ -54,23 +55,24 @@ var config = {
             // mapAnimation: 'flyTo',
             rotateAnimation: false,
             callback: '',
-            onChapterEnter: [ {
-                layer: 'CBD-fill',
-                opacity: 1,
-                duration: 100
-            }
-            ],
-            onChapterExit: [ 
+            onChapterEnter: [
                 {
-                layer: 'CBD-fill',
-                opacity: 0,
-                duration: 100
-            },
-            {
-                layer: 'CBD-only-fill',
-                opacity: 0.5,
-                duration: 110
-            }
+                    layer: 'CBD-fill',
+                    opacity: 1,
+                    duration: 100
+                }
+            ],
+            onChapterExit: [
+                {
+                    layer: 'CBD-fill',
+                    opacity: 0,
+                    duration: 100
+                },
+                {
+                    layer: 'CBD-only-fill',
+                    opacity: 0.5,
+                    duration: 110
+                }
             ]
         },
         {
@@ -90,17 +92,17 @@ var config = {
             callback: '',
             onChapterEnter: [
                 {
-                layer: 'streets-line',
-                opacity: 1,
-                duration: 100
-            }
-        ],
+                    layer: 'streets-line',
+                    opacity: 1,
+                    duration: 100
+                }
+            ],
             onChapterExit: [
                 {
-                layer: 'streets-line',
-                opacity: 0,
-                duration: 100
-            },
+                    layer: 'streets-line',
+                    opacity: 0,
+                    duration: 100
+                },
             ]
         },
         {
@@ -120,25 +122,25 @@ var config = {
             callback: '',
             onChapterEnter: [
                 {
-                layer: 'openStreets-fill',
-                opacity: 1,
-                duration: 100
-            },
-            {
-                layer: 'openStreets-line',
-                opacity: 1,
-                duration: 100
-            },
-             {
-                layer: 'pedPlazas-fill',
-                opacity: 1,
-                duration: 100
-            },
-            {
-                layer: 'pedPlazas-line',
-                opacity: 1,
-                duration: 100
-            }
+                    layer: 'openStreets-fill',
+                    opacity: 1,
+                    duration: 100
+                },
+                {
+                    layer: 'openStreets-line',
+                    opacity: 1,
+                    duration: 100
+                },
+                {
+                    layer: 'pedPlazas-fill',
+                    opacity: 1,
+                    duration: 100
+                },
+                {
+                    layer: 'pedPlazas-line',
+                    opacity: 1,
+                    duration: 100
+                }
             ],
             onChapterExit: [{
                 layer: 'openStreets-fill',
@@ -149,7 +151,7 @@ var config = {
                 layer: 'openStreets-line',
                 opacity: 0,
                 duration: 100
-            },   
+            },
             {
                 layer: 'pedPlazas-fill',
                 opacity: 0,
@@ -179,22 +181,22 @@ var config = {
             callback: '',
             onChapterEnter: [
                 {
-                layer: 'bikeParkingS-point',
-                opacity: 1,
-                duration: 100,
-            },
-            {
-                layer: 'citiBike-point',
-                opacity: 1,
-                duration: 100,
-            },
-            {
-                layer: 'bikeLanes-line',
-                opacity: 1,
-                duration: 100,
-            }
+                    layer: 'bikeParkingS-point',
+                    opacity: 1,
+                    duration: 100,
+                },
+                {
+                    layer: 'citiBike-point',
+                    opacity: 1,
+                    duration: 100,
+                },
+                {
+                    layer: 'bikeLanes-line',
+                    opacity: 1,
+                    duration: 100,
+                }
             ],
-            onChapterExit: [ {
+            onChapterExit: [{
                 layer: 'bikeParkingS-point',
                 opacity: 0,
                 duration: 100,
@@ -209,7 +211,7 @@ var config = {
                 opacity: 0,
                 duration: 100,
             }
-        ]
+            ]
         },
         {
             id: 'sixth-chapter',
@@ -228,16 +230,30 @@ var config = {
             callback: '',
             onChapterEnter: [
                 {
-                layer: 'busLanes-line',
-                opacity: 1,
-                duration: 100,
-            },
-        ],
-            onChapterExit: [ {
-                layer: 'busLanes-line',
-                opacity: 0,
-                duration: 100,
-            }]
+                    layer: 'busLanes-line',
+                    opacity: 1,
+                    duration: 100,
+                },
+            ],
+            onChapterExit: [
+                {
+                    layer: 'busLanes-line',
+                    opacity: 0,
+                    duration: 100,
+                }
+            ]
         },
     ]
 };
+
+scroller = scrollama({ //from ChatGPT, trying to debug the extra "box" that appears at the beginning and end of the scroll
+  step: ".step",
+  offset: 0.5,
+  debug: false // 👈 Turn this off
+});
+
+document.querySelectorAll('.step').forEach(step => {
+  if (!step.textContent.trim()) {
+    step.style.display = 'none';
+  }
+});
