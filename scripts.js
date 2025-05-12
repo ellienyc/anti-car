@@ -241,7 +241,7 @@ map.on('load', function () {
     });
     map.addSource('bikeLanes', { //bike lanes
         type: 'geojson',
-        data: 'data/bike_lanes.geojson' // downloaded from NYC Open Data https://data.cityofnewyork.us/dataset/New-York-City-Bike-Routes/mzxg-pwib
+        data: 'bike_lanes.geojson' // downloaded from NYC Open Data https://data.cityofnewyork.us/dataset/New-York-City-Bike-Routes/mzxg-pwib
     });
     map.addLayer({
         'id': 'bikeLanes-line',
@@ -249,7 +249,6 @@ map.on('load', function () {
         'source': 'bikeLanes',
         'layout': {},
         'paint': {
-
             'line-color': [ //code from ChatGPT to color the bike lanes by type
                 'match',
                 ['get', 'facilitycl'],
