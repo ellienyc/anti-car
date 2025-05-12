@@ -32,14 +32,14 @@ var config = {
             callback: '',
             onChapterEnter: [
                 {
-                    layer: 'all-streets-line', //showing all the  city streets, by street width
+                    layer: 'CBD-only-fill', //showing city streets, by street width
                     opacity: 1,
                     duration: 10
                 }
             ],
             onChapterExit: [
                 {
-                    layer: 'all-streets-line', //and having the layer go away to scroll to the next chapter
+                    layer: 'CBD-only-fill', //and having the layer go away to scroll to the next chapter
                     opacity: 0,
                     duration: 100,
                 }
@@ -290,14 +290,14 @@ var config = {
             callback: '',
             onChapterEnter: [
                 {
-                    layer: 'all-streets-line', //showing all the  city streets, by street width
+                    layer: 'CBD-only-fill', //showing city streets, by street width
                     opacity: 1,
                     duration: 100
                 },
             ],
             onChapterExit: [
                 {
-                    layer: 'all-streets-line',
+                    layer: 'CBD-only-fill',
                     opacity: 0,
                     duration: 100
                 }

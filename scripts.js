@@ -379,21 +379,21 @@ map.on('load', function () {
         }
     });
 
-    map.addSource('all-streets', { // NYC street center lines
-        type: 'geojson',
-        data: 'data/lion_filter.geojson' // from NYC Planning data LION street center lines, filtered and selected and reprojected in QGIS
-    });
-    map.addLayer({
-        'id': 'all-streets-line',
-        'type': 'line',
-        'source': 'all-streets',
-        'layout': {},
-        'paint': {
-            'line-color': 'gray',
-            'line-width': ['/', ['get', 'StreetWidth_Min'], 25], //showing the streets by width
-            'line-opacity': 0
-        }
-    });
+    // map.addSource('all-streets', { // NYC street center lines; jk oops this is too big for GitHub and won't work on GitHub pages
+    //     type: 'geojson',
+    //     data: 'data/lion_filter.geojson' // from NYC Planning data LION street center lines, filtered and selected and reprojected in QGIS
+    // });
+    // map.addLayer({
+    //     'id': 'all-streets-line',
+    //     'type': 'line',
+    //     'source': 'all-streets',
+    //     'layout': {},
+    //     'paint': {
+    //         'line-color': 'gray',
+    //         'line-width': ['/', ['get', 'StreetWidth_Min'], 25], //showing the streets by width
+    //         'line-opacity': 0
+    //     }
+    // });
 });
 
 //some ChatGPT code?, I don't remember what
