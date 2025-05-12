@@ -1,14 +1,15 @@
-        /* all either from original storytelling template, or ChatGPT help to fix the 'box' that appears */
+        /* all either from original storytelling template, or ChatGPT (including the help attempts to fix the 'box' that appears) */
 
         html,
         body {
-            background-color: #000 !important;
+            background-color: #444 !important;
         }
 
         body {
             margin: 0;
             padding: 0;
             min-height: 100vh;
+            height: 100%;
             display: flex;
             flex-direction: column;
             background-color: transparent;
@@ -26,7 +27,7 @@
             height: 100vh;
             width: 100vw;
             position: fixed;
-            background-color: #444; /* fallback if canvas isn't rendering */
+            background-color: #444; /* from ChatGPT: fallback if canvas isn't rendering */
         }
 
         #header {
@@ -42,6 +43,7 @@
             margin: 0;
             padding: 2vh 2vw;
             text-align: center;
+            background-color: #222;
         }
 
         #footer {
@@ -66,12 +68,12 @@
         }
 
         .centered {
-            width: 50vw;
+            width: 75vw; /* widened, to highlight intro page */
             margin: 0 auto;
         }
 
         .lefty {
-            width: 33vw;
+            width: 45vw; /* widened to fit all my text */
             margin-left: 5vw;
         }
 
@@ -92,13 +94,25 @@
 
         .dark {
             color: #fafafa;
-            background-color: #444;
+            background-color: #262626;
+        }
+
+        /* from ChatGPT on editing hyperlink color */
+        .dark a,
+        .dark a:hover,
+        .dark a:visited {
+            color: #f7f1cc;
         }
 
         .step {
             padding-bottom: 50vh;
             /* margin-bottom: 10vh; */
             opacity: 0.25;
+        }
+
+        .step h3 {
+            font-size: 24px; /* changing the font size */
+            margin-bottom: 6px;
         }
 
         .scrollama__debug {
@@ -111,8 +125,9 @@
 
         .step div {
             padding: 25px 50px;
-            line-height: 25px;
-            font-size: 13px;
+            line-height: 24px;
+            font-size: 14px;
+            border-radius: 10px;  /* rounded corners */
         }
 
         .step img {
