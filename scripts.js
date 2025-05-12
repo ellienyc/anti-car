@@ -241,7 +241,7 @@ map.on('load', function () {
     });
     map.addSource('bikeLanes', { //bike lanes
         type: 'geojson',
-        data: '/data/bike_lanes.geojson' // downloaded from NYC Open Data https://data.cityofnewyork.us/dataset/New-York-City-Bike-Routes/mzxg-pwib
+        data: 'data/bike_lanes.geojson' // downloaded from NYC Open Data https://data.cityofnewyork.us/dataset/New-York-City-Bike-Routes/mzxg-pwib
     });
     map.addLayer({
         'id': 'bikeLanes-line',
@@ -313,7 +313,7 @@ map.on('load', function () {
 
     map.addSource('city', { // NYC city boundaries, to gray out NJ
         type: 'geojson',
-        data: '/data/city-inverted.geojson' // inverse of NYC, from borough boundaries
+        data: 'data/city-inverted.geojson' // inverse of NYC, from borough boundaries
     });
     map.addLayer({
         'id': 'city-only-fill',
