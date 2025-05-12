@@ -32,16 +32,16 @@ var config = {
             callback: '',
             onChapterEnter: [
                 {
-                    layer: 'CBD-only-fill', //showing city streets, by street width
-                    opacity: 1,
-                    duration: 10
+                    // layer: 'all-streets-line', //showing city streets, by street width
+                    // opacity: 1,
+                    // duration: 10
                 }
             ],
             onChapterExit: [
                 {
-                    layer: 'CBD-only-fill', //and having the layer go away to scroll to the next chapter
-                    opacity: 0,
-                    duration: 100,
+                    // layer: 'all-streets-line', //and having the layer go away to scroll to the next chapter
+                    // opacity: 0,
+                    // duration: 100,
                 }
             ]
         },
@@ -276,8 +276,8 @@ var config = {
             hidden: false,
             title: 'Imagine what else we could do with this space...',
             image: 'data/seventeenth.png',
-            description: 'Besides the economic benefits already felt and proven, designing streets for uses other than cars has a multitude of benefits<br>'+
-            '<br>Paris, France, has worked to replace cars with bike space, and trees, and has seen <a href="https://www.washingtonpost.com/climate-solutions/2025/04/12/air-pollution-paris-health-cars/target="_blank">dramatic improvements</a> to their air quality.<br>'+
+            description: 'Besides the economic benefits already felt and proven, designing streets for uses other than cars has a multitude of benefits: '+
+            'Paris, France, has worked to replace cars (driving and parking) with space for bikes and greenery, and has seen <a href="https://www.washingtonpost.com/climate-solutions/2025/04/12/air-pollution-paris-health-cars/target="_blank">dramatic improvements</a> to their air quality.<br>'+
             '<br>Check out Transportation Alternatives and their <a href="https://nyc25x25.org/illustrated" target="_blank">Converting Car Space Into Space for People to Transform New York City</a> campaign in advocating for safer, prettier, healthier streets. <br>',
             location: {
                 center: [-74.02, 40.745],
@@ -290,14 +290,14 @@ var config = {
             callback: '',
             onChapterEnter: [
                 {
-                    layer: 'CBD-only-fill', //showing city streets, by street width
+                    layer: 'streets-line', //showing city streets, by street width
                     opacity: 1,
                     duration: 100
                 },
             ],
             onChapterExit: [
                 {
-                    layer: 'CBD-only-fill',
+                    layer: 'streets-line',
                     opacity: 0,
                     duration: 100
                 }

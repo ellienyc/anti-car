@@ -241,7 +241,7 @@ map.on('load', function () {
     });
     map.addSource('bikeLanes', { //bike lanes
         type: 'geojson',
-        data: '/data/bikeroutes.geojson' // downloaded from NYC Open Data https://data.cityofnewyork.us/dataset/New-York-City-Bike-Routes/mzxg-pwib
+        data: '/data/bike_lanes.geojson' // downloaded from NYC Open Data https://data.cityofnewyork.us/dataset/New-York-City-Bike-Routes/mzxg-pwib
     });
     map.addLayer({
         'id': 'bikeLanes-line',
